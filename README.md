@@ -10,7 +10,7 @@ todo:
 
 3. Add the option for the user to choose their own numbers by clicking on a button or a menu instead of typing them manually, you can use GUI libraries such as PyQt5, Tkinter or Pygame.
 
-4. Implement a feature that allows the user to view the history of past winning numbers.
+4. ~~Implement a feature that allows the user to view the history of past winning numbers.~~
 
 5. Implement a feature that allows the user to check the odds of winning and the prize amount for different levels of matching numbers.
 
