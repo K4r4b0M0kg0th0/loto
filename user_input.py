@@ -1,4 +1,14 @@
+import pickle
+
+saved_numbers = {}
+
 def get_user_numbers():
+    try:
+        with open("saved_numbers.pkl", "rb") as f:
+            saved_numbers = pickle.load(f)
+    except FileNotFoundError:
+        saved_numbers = {}
+
     while True:
         try:
             user_input = input("Enter your 5 main numbers separated by commas: ")
@@ -18,4 +28,14 @@ def get_user_numbers():
         except ValueError as e:
             print(e)
 
-    return (user_numbers_list, user_powerball)
+    user_numbers = (user_numbers_list, user_powerball)
+    save = input("Do you want to save these numbers for future draws? (y/n): ")
+    if save.lower() == "y":
+        user_name = input("Enter a name for your saved numbers: ")
+        saved_numbers[user_name] = user_numbers
+        print(f"Numbers saved as {user_name}.")
+        with open("saved_numbers.pkl", "wb") as f:
+            pickle.dump(saved numbers, f)
+return user_numbers
+
+
