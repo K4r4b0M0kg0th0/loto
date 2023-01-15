@@ -1,41 +1,10 @@
-import pickle
-
-saved_numbers = {}
-
 def get_user_numbers():
-    try:
-        with open("saved_numbers.pkl", "rb") as f:
-            saved_numbers = pickle.load(f)
-    except FileNotFoundError:
-        saved_numbers = {}
-
-    while True:
-        try:
-            user_input = input("Enter your 5 main numbers separated by commas: ")
-            user_numbers_list = [int(i) for i in user_input.split(",")]
-            if (len(user_numbers_list) != 5) or any(i < 1 or i > 50 for i in user_numbers_list):
-                raise ValueError("Invalid input. Please enter 5 numbers between 1 and 50 separated by commas.")
-            break
-        except ValueError as e:
-            print(e)
-
-    while True:
-        try:
-            user_powerball = int(input("Enter your Powerball number: "))
-            if user_powerball < 1 or user_powerball > 20:
-                raise ValueError("Invalid input. Please enter a number between 1 and 20.")
-            break
-        except ValueError as e:
-            print(e)
-
+    user_input = input("Enter your 5 main numbers separated by commas: ")
+    user_numbers_list = [int(i) for i in user_input.split(",")]
+    if (len(user_numbers_list) != 5) or any(i < 1 or i > 50 for i in user_numbers_list):
+        raise ValueError("Invalid input. Please enter 5 numbers between 1 and 50 separated by commas.")
+    user_powerball = int(input("Enter your Powerball number: "))
+    if user_powerball < 1 or user_powerball > 20:
+        raise ValueError("Invalid input. Please enter a number between 1 and 20.")
     user_numbers = (user_numbers_list, user_powerball)
-    save = input("Do you want to save these numbers for future draws? (y/n): ")
-    if save.lower() == "y":
-        user_name = input("Enter a name for your saved numbers: ")
-        saved_numbers[user_name] = user_numbers
-        print(f"Numbers saved as {user_name}.")
-        with open("saved_numbers.pkl", "wb") as f:
-            pickle.dump(saved numbers, f)
-return user_numbers
-
-
+    return user_numbers
