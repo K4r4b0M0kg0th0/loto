@@ -14,9 +14,9 @@ todo:
 
 5. Implement a feature that allows the user to check the odds of winning and the prize amount for different levels of matching numbers.
 
-6. Implement a feature that allows the user to save their numbers for future draws
+6. ~~Implement a feature that allows the user to save their numbers for future draws~~
 
-7. Implement a database for storing user information, purchased numbers, and winning numbers history.
+7. ~~Implement a database for storing user information, purchased numbers, and winning numbers history.~~
 
 8. Implement a feature that allows the user to check the results of their numbers automatically once the draw is done.
 
