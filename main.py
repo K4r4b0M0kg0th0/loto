@@ -24,16 +24,28 @@ def check_numbers(winning_numbers, user_numbers):
     else:
         return "Sorry, you did not win this time."
     
+def generate_random_numbers():
+    random_main_numbers = random.sample(range(1, 50), 5)
+    random_powerball = random.randint(1, 20)
+    return (random_main_numbers, random_powerball)
+    
 while True:
     try:
-        user_input = input("Enter your 5 main numbers separated by commas: ")
-        user_numbers_list = [int(i) for i in user_input.split(",")]
-        if (len(user_numbers_list) != 5) or any(i < 1 or i > 50 for i in user_numbers_list):
-            raise ValueError("Invalid input. Please enter 5 numbers between 1 and 50 separated by commas.")
+        choice = input("Do you want to choose your own numbers or generate random numbers? (c/g): ")
+        if choice.lower() == "c":
+            user_input = input("Enter your 5 main numbers separated by commas: ")
+            user_numbers_list = [int(i) for i in user_input.split(",")]
+            if (len(user_numbers_list) != 5) or any(i < 1 or i > 50 for i in user_numbers_list):
+                raise ValueError("Invalid input. Please enter 5 numbers between 1 and 50 separated by commas.")
+        elif choice.lower() == "g":
+            user_numbers_list, user_powerball = generate_random_numbers()
+            print("Your generated numbers are: ", user_numbers_list, user_powerball)
+        else:
+            raise ValueError("Invalid input. Please enter 'c' to choose your own numbers or 'g' to generate random numbers.")
         break
     except ValueError as e:
         print(e)
-        
+
 while True:
     try:
         user_powerball = int(input("Enter your Powerball number: "))
